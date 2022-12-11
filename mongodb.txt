@@ -1,0 +1,83 @@
+MongoDb commands for databases :
+1. view all databases
+   show dbs
+
+2. create a new or switch database
+   use dbName
+
+3. View current database
+   db
+
+4. Delete database
+   db.dropDatabase()
+
+
+MongoDb commands for Collections :
+Show Collections
+show Collections
+
+create a Collection named 'myComments'
+db.createCollection('myComments')
+
+
+MongoDb commands for rows :
+1. Insert one rows
+   db.comments.insertMany({
+    'name' : 'Samruddhi',
+    'lang' : 'JavaScript'
+   })
+
+2. Insert many rows
+   db,comments.insert([{
+    'name' : 'Samruddhi',
+    'lang' : 'JavaScript'
+   },
+   {
+    'name' : 'Ansha',
+    'lang' : 'Python'
+   },
+   {
+    'name' : 'Manas',
+    'lang' : 'Java'
+   }])
+
+3. Show all Rows in a collection (Prettified)
+   db.comments.find().pretty()
+
+4. Search in a MongoDb database
+   db.comments.find({'lang' : 'Python'})
+
+5. Limit the number of rows in output
+   db.comments.find().limit(2)
+
+6. Count the number of rows in the output
+   db.comments.find().count()
+
+7. Find the first row matching the object
+   db.comments.findOne({name : 'Samruddhi'})
+
+8. sorting the data
+   db.comments.find().sort({lang : 1}).pretty()
+   db.comments.find().sort({lang : -1}).pretty()
+
+9. Update a row
+   db.comments.update({name : 'Samruddhi'},
+   {
+    'name' : 'Samruddhi2',
+    'lang' : 'JavaScript'
+   }, {upsert : true})
+
+10. Mongodb rename operator
+db.comments.update({name : 'Abhishek'}'
+{'name' : 'Samruddhi',
+    'lang' : 'JavaScript'
+})
+
+11. Delete Rows
+    db.comments.remove({name : 'Samruddhi'})
+
+12. Less than
+    db.comments.find({object_name : {$lt : 90}})
+
+13. greater than
+    db.comments.find({object_name : {$gt : 30}})
